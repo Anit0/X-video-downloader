@@ -1,4 +1,4 @@
-# Pullwire
+# Anit0 Pullwire
 
 A small tool that saves the video or GIF file attached to a public X (Twitter) post — paste a link, get the direct MP4.
 
