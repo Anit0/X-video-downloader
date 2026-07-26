@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anit0 Pullwire — Save video &amp; GIF from X posts</title>
+<meta name="description" content="Paste a link to an X (Twitter) post and save its video or GIF directly from the source CDN.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a href="/" class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <circle cx="11" cy="11" r="9.5" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M11 4 L11 18 M4 11 L18 11" stroke="currentColor" stroke-width="1.4"/>
+        </svg>
+      </span>
+      Pullwire
+    </a>
+    <nav class="topnav">
+      <a href="#how">How it works</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero wrap">
+    <p class="eyebrow">// x.com / twitter video &amp; gif extractor</p>
+    <h1>Paste the link.<br>Pull the file.</h1>
+    <p class="hero-sub">Drop in a post URL from X. Pullwire reads the post, finds every video or GIF rendition attached to it, and hands you the direct file — straight from the source CDN, nothing re-encoded.</p>
+
+    <form class="puller" id="pullerForm" autocomplete="off">
+      <label for="tweetUrl" class="sr-only">X post URL</label>
+      <div class="puller-field">
+        <span class="puller-caret" aria-hidden="true">&gt;</span>
+        <input
+          type="text"
+          id="tweetUrl"
+          name="tweetUrl"
+          placeholder="https://x.com/username/status/1234567890"
+          spellcheck="false"
+          inputmode="url"
+        >
+        <button type="button" id="pasteBtn" class="ghost-btn">Paste</button>
+      </div>
+      <button type="submit" class="pull-btn" id="pullBtn">
+        <span class="pull-btn-label">Pull video</span>
+        <span class="pull-btn-trace" aria-hidden="true"></span>
+      </button>
+    </form>
+
+    <p class="hint" id="formHint">Works with x.com and twitter.com links that contain a video or GIF.</p>
+
+    <!-- Signature element: signal trace visualization -->
+    <div class="trace" aria-hidden="true">
+      <div class="trace-track">
+        <span class="trace-node n1"></span>
+        <span class="trace-node n2"></span>
+        <span class="trace-node n3"></span>
+        <span class="trace-node n4"></span>
+        <span class="trace-pulse"></span>
+      </div>
+      <div class="trace-labels">
+        <span>post</span>
+        <span>media entities</span>
+        <span>variants</span>
+        <span>.mp4</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="results wrap" id="results" hidden>
+    <div class="result-card" id="resultCard"></div>
+  </section>
+
+  <section class="how wrap" id="how">
+    <p class="section-eyebrow">how it works</p>
+    <div class="steps">
+      <article class="step">
+        <span class="step-index">01</span>
+        <h3>Copy the post link</h3>
+        <p>Open the post on X, tap the share icon, and choose <em>Copy link</em>. Or just copy it from the address bar.</p>
+      </article>
+      <article class="step">
+        <span class="step-index">02</span>
+        <h3>Paste it above</h3>
+        <p>Drop the link into the field and hit <em>Pull video</em>. Pullwire reads the post's public data — no login required.</p>
+      </article>
+      <article class="step">
+        <span class="step-index">03</span>
+        <h3>Choose a rendition</h3>
+        <p>Posts often carry several encodes. Pick the resolution you want and save it straight to your device.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="faq wrap" id="faq">
+    <p class="section-eyebrow">good to know</p>
+    <div class="faq-list">
+      <details>
+        <summary>Where does the file come from?</summary>
+        <p>Every download is fetched directly from X's own video CDN (video.twimg.com). Pullwire doesn't store, host, or re-encode any video — it only locates the link that's already public on the post.</p>
+      </details>
+      <details>
+        <summary>Does this work on private accounts?</summary>
+        <p>No. Pullwire can only read what's publicly viewable without logging in. Protected accounts and posts removed by the author won't resolve.</p>
+      </details>
+      <details>
+        <summary>Can I download GIFs too?</summary>
+        <p>Yes. What X displays as a "GIF" is technically a looping MP4 — Pullwire pulls it the same way as a regular video.</p>
+      </details>
+      <details>
+        <summary>Is this free?</summary>
+        <p>Yes, no account or watermark. Running the lookup and CDN bandwidth does cost money, so if it's useful to you, sharing it helps keep it up.</p>
+      </details>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p>Anit0 Pullwire pulls only what's already public on X — it doesn't host or mirror any video.</p>
+    <p class="footer-sub">All trademarks belong to Anit0</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
